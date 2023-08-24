@@ -1,6 +1,8 @@
 package com.example.spring.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,13 +42,31 @@ public class RequestMappingController {
      * ex) rem/test.do 요청시 뷰의 이름은 rem/test가 된다.
      * -> WEB-INF/views/rem/test.jsp
      */
+    /*
     @RequestMapping("/test.do")
     public void test(HttpServletRequest request){
         System.out.println("rem/test.do 요청됨...");
 
         String name = request.getParameter("name");
         System.out.println("name: " + name);
-
-
     }
+
+     */
+
+    @GetMapping("/test.do")
+    public void test(HttpServletRequest request){
+        System.out.println("rem/test.do Get 요청됨...");
+
+        String name = request.getParameter("name");
+        System.out.println("name: " + name);
+    }
+
+    @PostMapping("/test.do")
+    public void test2(HttpServletRequest request){
+        System.out.println("rem/test.do Post 요청됨...");
+
+        String name = request.getParameter("name");
+        System.out.println("name: " + name);
+    }
+
 }
