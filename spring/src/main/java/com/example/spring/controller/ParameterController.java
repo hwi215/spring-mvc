@@ -1,11 +1,15 @@
 package com.example.spring.controller;
 
+import com.example.spring.dto.MemberDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Controller // 생성
 @RequestMapping("/param")
@@ -67,6 +71,38 @@ public class ParameterController {
         return "param/b";
     }
 
+    /**
+     * 인수로 Dto 객체(command 객체)를 받으며
+     * 그 객체의 정보가 뷰쪽으로 전달되어 뷰에서 사용할 수 있다.
+     * view에서 사용하는 방법: 객체이름의 첫 글자를 소문자로 사용
+     *   ex) ${memberDto.속성}
+     *
+     *
+     * 인수로 @ModelAttribute("dto")를 선언하면,
+     * 인수가 뷰로 전달될때 별칭을 만들어서 전달한다.
+     * ${dto.속성
+     */
+    @RequestMapping("/user.do")
+    public ModelAndView user(@ModelAttribute("dto") MemberDto member){ // MemberDto 모든 정보 다 들어옴
+
+        System.out.println("member = " + member);
+
+        // 서비스 -> dao
+
+        // 결과를 받아서 뷰로 이동
+
+        return new ModelAndView("ok");// 뷰의 이름이 ok -> /ok.jsp로 이동
+    }
+
+    @ModelAttribute("info")
+    public String info(){
+        return "오늘은 불금!!";
+    }
+
+    @ModelAttribute("hobbys")
+    public List<String> hobbys(){
+        return Arrays.asList("등산", "낚시");
+    }
 
 
 }

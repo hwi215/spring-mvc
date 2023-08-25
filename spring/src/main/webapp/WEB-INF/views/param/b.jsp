@@ -27,5 +27,8 @@
     </c:forEach>
 </fieldset>
 
+info = ${info} <br>
+hobbies = ${hobbys}
+
 </body>
 </html>
