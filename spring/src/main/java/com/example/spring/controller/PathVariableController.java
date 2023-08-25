@@ -16,10 +16,20 @@ public class PathVariableController {
         System.out.println("id: " + id);
     }
 
-    @RequestMapping("/jang")
-    public String test2(){
-
+    @RequestMapping("/{userId}")
+    public String test2(@PathVariable String userId){
         return "result";
+
+    }
+
+    @RequestMapping("/borad/{name}/{num}")
+    public String test2(@PathVariable String name, @PathVariable int num){
+        System.out.println("name: " + name);
+        System.out.println("num: " + num);
+
+        //return "result";
+        return "redirect:/rem/a.do"; // "/rem/a.do" 요청의 컨트롤러에 진입하게 됨
+
 
     }
 
