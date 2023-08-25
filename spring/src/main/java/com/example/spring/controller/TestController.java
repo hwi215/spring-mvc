@@ -14,7 +14,7 @@ public class TestController {
 
     @RequestMapping("/test2.do")
     public ModelAndView ex(String no){
-        System.out.println("test2.do dbwlehla");
+        System.out.println("/test2.do ");
 
         int convertNo = Integer.parseInt(no);
 
