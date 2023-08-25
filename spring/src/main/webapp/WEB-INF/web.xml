@@ -50,8 +50,13 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
 
 
     <servlet-mapping>
@@ -65,6 +70,24 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.form</url-pattern>
     </servlet-mapping> -->
+
+    <!-- admin 전용 -->
+    <servlet>
+        <servlet-name>dispatcherAdmin</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/admin-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>dispatcherAdmin</servlet-name>
+        <url-pattern>*.admin</url-pattern> 
+    </servlet-mapping>
+    
 
 
 

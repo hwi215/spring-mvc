@@ -1,5 +1,8 @@
 package com.example.spring.controller;
 
+import com.example.spring.service.TestService;
+import com.example.spring.service.TestServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PathVariableController {
+    // 서비스가 필요함
+    @Autowired // @service 주입하기
+    private TestService testService;
 
     @RequestMapping("/{type}/{id}.do")
     public void test(@PathVariable String type, @PathVariable String id){  // 요청을 해로 잘 받기
@@ -14,6 +20,8 @@ public class PathVariableController {
 
         System.out.println("type: " + type);
         System.out.println("id: " + id);
+
+        System.out.println("testService: " + testService);
     }
 
     @RequestMapping("/{userId}")

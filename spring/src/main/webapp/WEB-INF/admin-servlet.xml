@@ -21,7 +21,7 @@
 
     <!--  viewResolver 등록-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="prefix" value="/WEB-INF/admin/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
@@ -32,22 +32,10 @@
     <bean name="/select.do" class="com.example.spring.controller.SelectController"/>
     <bean name="/update.do" class="com.example.spring.controller.UpdateController"/>
 
-    <context:component-scan base-package="com.example.spring.controller, com.example.spring.service"/>
+    <context:component-scan base-package="com.example.spring.admin"/>
 
     <!-- 모든 영역에서 발생하는 예외처리 -->
-<!--
-    <beans:bean class = "org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <beans:property name = "exceptionMappings">
-            <beans:props>
-                <beans:prop key = "java.lang.NumberFormatException">
-                    error/numberView
-                </beans:prop>
-            </beans:props>
-        </beans:property>
-    </beans:bean>
--->
 
-    <!-- SimpleMappingExceptionResolver -->
     <beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <beans:property name="exceptionMappings">
             <beans:props>
