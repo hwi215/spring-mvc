@@ -4,15 +4,20 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-<!--
+    <!-- -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+
+
+    <!-- SpringContainer의 설정문서는 /WEB-INF/applicationContext.xml 이다.
+        만약, 설정문서 경로와 위치를 변경하고 싶으면? context-param 설정하면 된다.
+     -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    -->
+
 
     <!-- post 방식 한글 인코딩 설정 -->
     <filter>

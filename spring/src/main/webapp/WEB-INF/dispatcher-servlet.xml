@@ -19,6 +19,9 @@
     <mvc:annotation-driven></mvc:annotation-driven>
 
 
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
     <!--  viewResolver 등록-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
@@ -32,7 +35,7 @@
     <bean name="/select.do" class="com.example.spring.controller.SelectController"/>
     <bean name="/update.do" class="com.example.spring.controller.UpdateController"/>
 
-    <context:component-scan base-package="com.example.spring.controller, com.example.spring.service"/>
+    <context:component-scan base-package="com.example.spring.controller"/>
 
     <!-- 모든 영역에서 발생하는 예외처리 -->
 <!--
