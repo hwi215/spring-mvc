@@ -13,11 +13,11 @@ public class EmpMainApp {
 		
 		System.out.println("\n2. 등록하기 ---------------------");
 		//dao.insert(new EmpDto(9017, "장희정", "강사2", 2500, null));
-		dao.insert(new EmpDto(9116, null, "강사2", 2500, null));
+		//dao.insert(new EmpDto(9116, null, "강사2", 2500, null));
 		
 		
 		System.out.println("\n3. 삭제하기 ---------------------");
-		//dao.delete(9899);
+		dao.delete(9000);
 		
 		System.out.println("\n4. 수정하기 ---------------------");
 		//dao.update(new EmpDTO(2500, "얼짱", "백조", 1000, null));

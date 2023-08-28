@@ -16,5 +16,10 @@
 
     </insert>
 
+    <!-- 사원 삭제하기(사원번호로 삭제))-->
+    <delete id="delete" parameterType="int">
+        delete from emp where empno = #{_parameter}
+    </delete>
+
 
 </mapper>
