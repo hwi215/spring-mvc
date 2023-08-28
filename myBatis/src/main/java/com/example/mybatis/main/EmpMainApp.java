@@ -8,12 +8,12 @@ public class EmpMainApp {
 	public static void main(String[] args) {
 		EmpDao dao = new EmpDao();
 		
-		System.out.println("1. 사원 이름 검색 ---------------------");
-		dao.selectByEname();
+		//System.out.println("1. 사원 이름 검색 ---------------------");
+		//dao.selectByEname();
 		
-		//System.out.println("\n2. 등록하기 ---------------------");
+		System.out.println("\n2. 등록하기 ---------------------");
 		//dao.insert(new EmpDto(9017, "장희정", "강사2", 2500, null));
-		//dao.insert(new EmpDto(90016, null, "강사2", 2500, null));
+		dao.insert(new EmpDto(9116, null, "강사2", 2500, null));
 		
 		
 		System.out.println("\n3. 삭제하기 ---------------------");
