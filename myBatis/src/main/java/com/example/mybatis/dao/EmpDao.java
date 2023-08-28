@@ -57,4 +57,22 @@ public class EmpDao {
             DBManager.sessionClose(session, state);
         }
     }
+
+    /**
+     * 전체 검색하기
+     */
+    public void selectAll() {
+        SqlSession session = null;
+        try {
+            // 로드 연결 실행 닫기
+            session = DBManager.getSession();
+            List<EmpDto> list = session.selectList(NS + "selectAll"); // namespace.id
+            for(EmpDto empDto:list) {
+                System.out.println(empDto);
+            }
+        }finally {
+            DBManager.sessionClose(session);
+
+        }
+    }
 }

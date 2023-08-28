@@ -21,5 +21,11 @@
         delete from emp where empno = #{_parameter}
     </delete>
 
+    <!-- 전체 검색 -->
+    <select id = "selectAll" resultType="empDto">
+        select empno, ename, job, sal, hiredate
+        from emp
+    </select>
+
 
 </mapper>
