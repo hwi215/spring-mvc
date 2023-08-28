@@ -75,4 +75,22 @@ public class EmpDao {
 
         }
     }
+
+    /**
+     *  사원번호 검색하기
+     */
+    public void selectByEmpno(int empno) {
+
+        SqlSession session = null;
+        try {
+            // 로드 연결 실행 닫기
+            session = DBManager.getSession();
+            EmpDto dto = session.selectOne(NS + "selectByEmpNo", empno);
+            System.out.println("dto: " + dto);
+        }finally {
+            DBManager.sessionClose(session);
+
+        }
+
+    }
 }

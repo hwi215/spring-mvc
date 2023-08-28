@@ -22,11 +22,11 @@ public class EmpMainApp {
 		//System.out.println("\n4. 수정하기 ---------------------");
 		//dao.update(new EmpDTO(2500, "얼짱", "백조", 1000, null));
 		
-		System.out.println("\n5. 전체검색하기 ---------------------");
-       	dao.selectAll();
+		//System.out.println("\n5. 전체검색하기 ---------------------");
+       	//dao.selectAll();
 
 		System.out.println("\n6. 사원번호 검색하기 ---------------------");
-		//dao.selectByEmpno(2000);
+		dao.selectByEmpno(7499);
 		
 		System.out.println("\n7. sal 적게받는 사원 검색하기 ---------------------");
 	    //dao.selectLessthanSal(2000);

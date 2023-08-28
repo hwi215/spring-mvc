@@ -4,6 +4,11 @@
             "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="EmpMapper">
 
+    <!-- 자주 사용되는 쿼리를 참주하여 구하기 -->
+    <sql id = "empSel">
+
+    </sql>
+
     <!-- 사원이름 정보 검색 -->
     <select id = "selectName" resultType="String">
         select ename from emp
@@ -23,8 +28,18 @@
 
     <!-- 전체 검색 -->
     <select id = "selectAll" resultType="empDto">
-        select empno, ename, job, sal, hiredate
+        select empno, ename as empname, job, sal, hiredate
         from emp
+    </select>
+
+    <!-- 사원 검색 -->
+
+    <sql id = "where">
+        where empno = #{_parameter}
+    </sql>
+    <select id = "selectByEmpNo" resultType="empDto" parameterType="int">
+        select empno, ename as empname, job, sal, hiredate
+        from emp <include refid="where"></include>
     </select>
 
 
