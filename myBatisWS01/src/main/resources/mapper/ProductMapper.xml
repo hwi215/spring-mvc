@@ -13,5 +13,39 @@
         values(#{code}, #{name}, #{qty}, #{price}, #{detail})
     </insert>
 
+    <!-- 전체 검색 -->
+    <select id = "selectAll" resultType="productDto">
+        select *
+        from productList
+    </select>
+
+    <!-- 상품 수정 -->
+    <update id="update">
+        update productList
+        set
+        name = #{name},
+        qty = #{qty},
+        price = #{price},
+        detail = #{detail}
+        where code = #{code}
+
+    </update>
+
+    <!-- 상품 삭제하기(상품코드로 삭제))-->
+    <delete id="delete" parameterType="String">
+        delete from productList where code = #{_parameter}
+    </delete>
+
+    <!-- 모든 상품의 개수 촐력 -->
+    <select id = "selectSumQty" resultType="int">
+        select sum(qty) from productList
+    </select>
+
+
+
+
+
+
+
 
 </mapper>

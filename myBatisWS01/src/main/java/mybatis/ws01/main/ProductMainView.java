@@ -11,15 +11,15 @@ public class ProductMainView {
 		 * [1]. 레코드 삽입
 		 * */
 		System.out.println("********** [1] 상품 등록하기 ******************");
-		dao.insert(new ProductDto("A08", "홈런볼커스타드", 7, 2500, "홈런쳐봐용")); //성공
+		//dao.insert(new ProductDto("A08", "홈런볼커스타드", 7, 2500, "홈런쳐봐용")); //성공
 
 		/**
 		 * [2]. 전체레코드 검색 
 		     ex) select * from productList
 		 *        
 		 * */
-		System.out.println("********** [2] 모든 게시물 검색 ******************");
-		// dao.selectAll(); // 성공
+		 System.out.println("********** [2] 모든 게시물 검색 ******************");
+		 //dao.selectAll(); // 성공
 
 		/**
 		 * [3]. 검색필드 , 검색단어에 해당하는 레코드 검색
@@ -44,15 +44,15 @@ public class ProductMainView {
 		 * 
 		 * */
 		System.out.println("********** [5] 상품 수정하기 ******************");
-		//dao.update(new ProductDTO("A01", "프링글스", 7	, 10000, "감자칩의 대왕")); // 성공
+		//dao.update(new ProductDto("A01", "프링글스", 7	, 10000, "감자칩의 대왕")); // 성공
 		
 		
 		
 		/**
 		 * [6].상품코드에 해당하는 레코드 삭제
 		 * */
-		System.out.println("********** [6] 상품 삭제하기 ******************");
-		 //dao.delete("A06"); // 성공
+		 System.out.println("********** [6] 상품 삭제하기 ******************");
+		 //dao.delete("A08"); // 성공
 
 		/**
 		 * [7]. 모든 상품의 개수를 출력한다.
@@ -60,6 +60,6 @@ public class ProductMainView {
 			  select sum(qty) from productList-- 모든상품의 qty의총합계
 		 * */
 		System.out.println("********** [7] 등록된 총 상품 개수 ******************");
-		//dao.selectSumQty(); // 성공
+		dao.selectSumQty(); // 성공
 	}
 }
