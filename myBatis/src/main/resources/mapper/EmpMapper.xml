@@ -53,4 +53,10 @@
     </select>
 
 
+    <!-- 급여기 min ~ max -->
+    <select id="selectMinMax" parameterType="map" resultType="empDto">
+        <include refid="empSel"/>
+            where sal between #{min} and #{max}
+    </select>
+
 </mapper>

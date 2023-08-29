@@ -29,10 +29,10 @@ public class EmpMainApp {
 		//dao.selectByEmpno(7499);
 		
 		System.out.println("\n7. sal 적게받는 사원 검색하기 ---------------------");
-	    dao.selectLessthanSal(2000);
+	    //dao.selectLessthanSal(2000);
 		
 		System.out.println("\n8.Min ~ Max 검색 ---------------------");
-		//dao.selectMinMax(2000, 3000);
+		dao.selectMinMax(2000, 3000);
 	   
 		System.out.println("\n9.정렬하기 --------------------");
 		//dao.selectOrder("empno");

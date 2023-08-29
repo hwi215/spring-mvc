@@ -4,7 +4,9 @@ import com.example.mybatis.common.DBManager;
 import com.example.mybatis.dto.EmpDto;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmpDao {
 
@@ -97,7 +99,7 @@ public class EmpDao {
     /**
      * sal 적게받는 사원 검색하기
      */
-    public void selectLessthanSal(int sal) {
+    public void selectLessThanSal(int sal) {
         SqlSession session = null;
         try {
             // 로드 연결 실행 닫기
@@ -110,5 +112,30 @@ public class EmpDao {
             DBManager.sessionClose(session);
 
         }
+    }
+
+    /**
+     * 급여가 Min ~ Max 검색
+     */
+    public void selectMinMax(int min, int max) {
+
+        SqlSession session = null;
+
+        Map<String, Integer> map = new HashMap<>();
+        map.put("min", min); // mapper쪽에서 #{min}
+        map.put("max", max);
+
+        try {
+            // 로드 연결 실행 닫기
+            session = DBManager.getSession();
+            List<EmpDto> list = session.selectList(NS + "selectMinMax", map);
+            for(EmpDto dto:list) {
+                System.out.println(dto);
+            }
+        }finally {
+            DBManager.sessionClose(session);
+
+        }
+
     }
 }
