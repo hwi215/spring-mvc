@@ -6,6 +6,7 @@
 
     <!-- 자주 사용되는 쿼리를 참주하여 구하기 -->
     <sql id = "empSel">
+        select * from emp
 
     </sql>
 
@@ -40,6 +41,15 @@
     <select id = "selectByEmpNo" resultType="empDto" parameterType="int">
         select empno, ename as empname, job, sal, hiredate
         from emp <include refid="where"></include>
+    </select>
+
+
+
+    <!-- 전달된 급여보다 적게 받는 사원정보 검색 -->
+    <select id="selectLessThanSal" parameterType="int" resultType="empDto">
+        <include refid="empSel"/>
+            where sal &lt; #{_parameter}
+            order by sal
     </select>
 
 

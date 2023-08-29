@@ -93,4 +93,22 @@ public class EmpDao {
         }
 
     }
+
+    /**
+     * sal 적게받는 사원 검색하기
+     */
+    public void selectLessthanSal(int sal) {
+        SqlSession session = null;
+        try {
+            // 로드 연결 실행 닫기
+            session = DBManager.getSession();
+            List<EmpDto> list = session.selectList(NS + "selectLessThanSal", sal); // namespace.id
+            for(EmpDto dto:list) {
+                System.out.println(dto);
+            }
+        }finally {
+            DBManager.sessionClose(session);
+
+        }
+    }
 }
