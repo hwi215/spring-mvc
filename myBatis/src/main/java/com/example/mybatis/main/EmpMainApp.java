@@ -35,10 +35,10 @@ public class EmpMainApp {
 		//dao.selectMinMax(2000, 3000);
 	   
 		System.out.println("\n9.정렬하기 --------------------");
-		dao.selectOrder("empno");
+		//dao.selectOrder("empno");
 		
 		System.out.println("\n10.검색필드와 검색단어 또는 사원번호 또는 급여 해당하는 레코드 검색 ");
-		//dao.selectWhereMix("ename", "a", 9898, 3500);
+		dao.selectWhereMix("ename", "a", 9898, 3500);
 		
 		System.out.println("\n11.job 검색...------------------------- ");
 		//dao.selectByJob("manager");

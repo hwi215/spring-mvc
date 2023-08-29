@@ -158,4 +158,32 @@ public class EmpDao {
 
         }
     }
+
+    /**
+     * 검색필드와 검색단어 또는 사원번호 또는 급여 해당하는 레코드 검색
+     * - map을 이용해 다양한 정보들 넣어 퀴리 쉽게 작성 가능
+     */
+    public void selectWhereMix(String columnName, String keyWord, int empno, int sal) {
+
+        SqlSession session = null;
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("columnName", columnName);
+        map.put("keyWord", keyWord);
+        map.put("dto", new EmpDto(empno, null, null, sal, null));
+        map.put("sal", sal);
+
+
+        try {
+            // 로드 연결 실행 닫기
+            session = DBManager.getSession();
+            List<EmpDto> list = session.selectList(NS + "selectWhereMix", map);
+            for(EmpDto dto:list) {
+                System.out.println(dto);
+            }
+        }finally {
+            DBManager.sessionClose(session);
+
+        }
+    }
 }

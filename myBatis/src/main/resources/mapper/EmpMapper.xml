@@ -70,4 +70,15 @@
     </select>
 
 
+    <!-- 인수로 전달된 컬럼을 기준으로 정렬하기
+        select * from emp
+         where upper(ename) like upper('%A%') or empno = 9898 or sal = 3500;
+    -->
+
+    <select id="selectWhereMix" parameterType="map" resultType="empDto">
+        <include refid="empSel"/>
+        where upper(${columnName}) like upper('%' || #{keyWord] || '%') or empno = #{dto.emmpno} or sal = #{dto.sal}
+    </select>
+
+
 </mapper>
