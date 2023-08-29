@@ -59,4 +59,10 @@
             where sal between #{min} and #{max}
     </select>
 
+    <!-- 인수로 전달된 컬럼을 기준으로 정렬하기 -->
+    <select id="selectByOrder" parameterType="string" resultType="empDto">
+        <include refid="empSel"/>
+        order by #{_parameter}
+    </select>
+
 </mapper>

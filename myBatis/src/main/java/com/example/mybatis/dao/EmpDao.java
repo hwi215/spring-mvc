@@ -138,4 +138,24 @@ public class EmpDao {
         }
 
     }
+
+    /**
+     * 인수로 전달된 컬럼을 기준으로 정렬하기
+     */
+    public void selectOrder(String empno) {
+
+        SqlSession session = null;
+
+        try {
+            // 로드 연결 실행 닫기
+            session = DBManager.getSession();
+            List<EmpDto> list = session.selectList(NS + "selectByOrder", empno);
+            for(EmpDto dto:list) {
+                System.out.println(dto);
+            }
+        }finally {
+            DBManager.sessionClose(session);
+
+        }
+    }
 }
