@@ -59,10 +59,15 @@
             where sal between #{min} and #{max}
     </select>
 
-    <!-- 인수로 전달된 컬럼을 기준으로 정렬하기 -->
+    <!-- 인수로 전달된 컬럼을 기준으로 정렬하기
+        #{}: PreparedStatement 방식 -> 정렬안됨 - 조건(if or choose 등)을 활용하여 직접 쿼리 짜야 함
+        ${}: Statement 방식 -> SQL Injection 공격대상 -> 정렬잘됨 - 권장X
+    -->
     <select id="selectByOrder" parameterType="string" resultType="empDto">
         <include refid="empSel"/>
-        order by #{_parameter}
+        order by ${_parameter}
+
     </select>
+
 
 </mapper>
