@@ -44,6 +44,8 @@
             <version>3.0.2</version>
         </dependency>
         <dependency>
+
+            <!-- myBatis-spring -->
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.2</version>
