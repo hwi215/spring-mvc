@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-//@RestController // @Controller + @ResponseBody
-@Controller
+@RestController // @Controller + @ResponseBody
+//@Controller
 public class ResponseBodyController {
 
     @RequestMapping("/responseBody.do")
@@ -23,7 +23,7 @@ public class ResponseBodyController {
 
     // 인코딩 추가
     @RequestMapping(value = "/responseBody2.do", produces = "text/html; charset=UTF-8")
-    @ResponseBody // 리턴하는 값을 그대로 응답객체로 브라우저에 전송
+    //@ResponseBody // 리턴하는 값을 그대로 응답객체로 브라우저에 전송
     public String aa2(){
         System.out.println("ResponseBodyController2 aa() call...");
         return "성공2";
@@ -31,7 +31,7 @@ public class ResponseBodyController {
     }
 
     @RequestMapping(value = "/ajax.do")
-    @ResponseBody
+    //@ResponseBody
     public List<MemberDto> aaa(String email, String pwd){
         System.out.println("email: " + email);
         System.out.println("pwd: " + pwd);

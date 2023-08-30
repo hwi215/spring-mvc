@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource = "dbInfo.properties"/>
+    <!-- 외부의 ~.properties 파일 위치로 설정 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED"> <!-- UNPOOLED | POOLED(connection pooled 사용) -->
+                <property name="driver" value="${driverName}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${db.userName}"/> <!-- 외부에서 참조함 -->
+                <property name="password" value="${db.userPass}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/EmpMapper.xml"/>
+    </mappers>
+</configuration>
