@@ -46,8 +46,10 @@
         where code = #{_parameter}
     </delete>
 
-
-
+    <!-- 7. 모든 상품의 개수를 출력한다. -->
+    <select id = "selectSumQty" resultType="int">
+        select sum(qty) from productList
+    </select>
 
 
 

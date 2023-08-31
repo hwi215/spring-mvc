@@ -76,8 +76,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.delete(NS + "delete", code);
 	}
 
+	/**
+	 * 7. qty 전체 개수 구하기
+	 * */
 	@Override
 	public int selectSumQty() {
-		return 0;
+		return session.selectOne(NS + "selectSumQty");
+
 	}
 }

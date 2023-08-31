@@ -4,6 +4,7 @@ import com.example.mybatisspring0.dto.ProductDTO;
 import com.example.mybatisspring0.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -85,6 +86,17 @@ public class ProductController {
 		System.out.println("delete 성공");
 		return "redirect:/selectAll";
 
+	}
+
+	/**
+	 * 7. qty 전체 개수 구하기
+	 * */
+	@RequestMapping("/totalCount")
+	public String selectSumQty(Model model){
+		int count = productService.selectSumQty();
+		model.addAttribute("totalCount", count);
+
+		return "countResult";
 	}
 
 

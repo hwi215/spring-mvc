@@ -101,8 +101,17 @@ public class ProductServiceImpl implements ProductService {
 		return result;
 	}
 
+	/**
+	 * 7. qty 전체 개수 구하기
+	 * */
 	@Override
 	public int selectSumQty() {
-		return 0;
+		int result = 0;
+		try {
+			result = productDAO.selectSumQty();
+		}catch (Exception e){
+			throw new MyException("전체 개수 구하기에 실패했습니다.");
+		}
+		return result;
 	}
 }
