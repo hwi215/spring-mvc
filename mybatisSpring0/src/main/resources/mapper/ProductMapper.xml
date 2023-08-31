@@ -40,6 +40,12 @@
         where code = #{code}
     </update>
 
+    <!-- 6. 상품코드에 해당하는 레코드 삭제 -->
+    <delete id = "delete" parameterType="string">
+        delete from productList
+        where code = #{_parameter}
+    </delete>
+
 
 
 

@@ -87,9 +87,18 @@ public class ProductServiceImpl implements ProductService {
 		return result;
 	}
 
+	/**
+	 * 6.삭제하기
+	 * */
 	@Override
 	public int delete(String code) {
-		return 0;
+		int result = 0;
+		try{
+			result = productDAO.delete(code);
+		}catch (Exception e){
+			throw new MyException("삭제에 실패했습니다.");
+		}
+		return result;
 	}
 
 	@Override

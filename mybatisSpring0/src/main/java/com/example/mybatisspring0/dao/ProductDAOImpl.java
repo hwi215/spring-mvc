@@ -68,9 +68,12 @@ public class ProductDAOImpl implements ProductDAO {
 
 	}
 
+	/**
+	 * 6.삭제하기
+	 * */
 	@Override
 	public int delete(String code) {
-		return 0;
+		return session.delete(NS + "delete", code);
 	}
 
 	@Override

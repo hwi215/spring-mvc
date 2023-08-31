@@ -76,6 +76,17 @@ public class ProductController {
 
 	}
 
+	/**
+	 * 6.삭제하기
+	 * */
+	@RequestMapping("/delete")
+	public String delete(String code){
+		productService.delete(code);
+		System.out.println("delete 성공");
+		return "redirect:/selectAll";
+
+	}
+
 
 }
 
