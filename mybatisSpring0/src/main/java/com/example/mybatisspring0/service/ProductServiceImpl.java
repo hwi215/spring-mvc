@@ -3,13 +3,15 @@ package com.example.mybatisspring0.service;
 
 import com.example.mybatisspring0.dao.ProductDAO;
 import com.example.mybatisspring0.dto.ProductDTO;
-import com.example.mybatisspring0.exception.MyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import web.mvc.exception.MyException;
 
 import java.util.List;
 
-
+/**
+ * service에서 조건 처리 하기(ex. 예외처리 등)
+ */
 @Service // 생성
 public class ProductServiceImpl implements ProductService {
 
@@ -17,16 +19,28 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO productDAO;
 
 	/**
-	 * 전체검색
+	 * 1. 전체검색
 	 */
 	@Override
 	public List<ProductDTO> selectAll() {
 		return productDAO.selectAll();
 	}
 
+	/**
+	 * 2. 등록하기
+	 */
 	@Override
 	public int insert(ProductDTO productDTO) {
-		return 0;
+		int result = 0;
+		try {
+			result = productDAO.insert(productDTO);
+		}catch (Exception e) {
+			//e.printStackTrace();
+			throw new MyException("등록에 예외가 발생했습니다.");
+		}
+
+		return result;
+
 	}
 
 

@@ -24,13 +24,23 @@ public class ProductController {
 	public void url(){}
 
 	/**
-	 * 0. 전체검색
+	 * 1. 전체검색
 	 */
 	@RequestMapping("/selectAll")
 	public ModelAndView selectAll(){
 		List<ProductDTO> list = productService.selectAll();
 		// viewName: jsp 이름,  modelName: 프론트에 전달되는 이름
 		return new ModelAndView("selectResult", "productList", list);
+	}
+	/**
+	 * 2. 등록하기
+	 */
+	@RequestMapping("/insert")
+	public String insert(ProductDTO productDTO){
+		// 레코드 삽입
+		productService.insert(productDTO);
+		System.out.println("등록 성공");
+		return "redirect:/selectAll";
 	}
 
 

@@ -10,10 +10,18 @@
         from productList
     </sql>
 
-    <!-- 0. 전체검색 -->
+    <!-- 1. 전체검색 -->
     <select id = "selectAll" resultType="productDTO">
         <include refid="selectSel"/>
     </select>
+
+    <!-- 2. 등록 -->
+    <insert id = "insert" parameterType="productDTO">
+        insert into productList(code, name, qty, price, detail)
+        values(#{code}, #{name}, #{qty}, #{price}, #{detail})
+    </insert>
+
+
 
 
 
