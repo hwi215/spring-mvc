@@ -13,15 +13,23 @@ import java.util.List;
 @Service // 생성
 public class ProductServiceImpl implements ProductService {
 
+	@Autowired
+	private ProductDAO productDAO;
+
+	/**
+	 * 전체검색
+	 */
+	@Override
+	public List<ProductDTO> selectAll() {
+		productDAO.selectAll();
+		return null;
+	}
+
 	@Override
 	public int insert(ProductDTO productDTO) {
 		return 0;
 	}
 
-	@Override
-	public List<ProductDTO> selectAll() {
-		return null;
-	}
 
 	@Override
 	public List<ProductDTO> selectByKeyWord(String keyField, String keyWord) {
