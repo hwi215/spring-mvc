@@ -21,8 +21,7 @@ public class ProductServiceImpl implements ProductService {
 	 */
 	@Override
 	public List<ProductDTO> selectAll() {
-		productDAO.selectAll();
-		return null;
+		return productDAO.selectAll();
 	}
 
 	@Override

@@ -11,13 +11,17 @@ import java.util.Map;
 
 @Repository // 생성
 public class ProductDAOImpl implements ProductDAO {
-	
-	public static final String NS = "productMapper.";
 
+	@Autowired
+	private SqlSession session;
 
+	public static final String NS = "ProductMapper.";
+	/**
+	 * 전체선택
+	 */
 	@Override
-	public List<ProductDTO> selectAll() {
-		return null;
+	public List<ProductDTO> selectAll() { // productMapper, selectAll
+		return session.selectList(NS + "selectAll");
 	}
 
 	@Override

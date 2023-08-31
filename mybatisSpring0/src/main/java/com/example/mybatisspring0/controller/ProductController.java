@@ -24,16 +24,16 @@ public class ProductController {
 	public void url(){}
 
 	/**
-	 * 전체검색
+	 * 0. 전체검색
 	 */
-	/*
 	@RequestMapping("/selectAll")
 	public ModelAndView selectAll(){
 		List<ProductDTO> list = productService.selectAll();
+		// viewName: jsp 이름,  modelName: 프론트에 전달되는 이름
 		return new ModelAndView("selectResult", "productList", list);
 	}
 
-	 */
+
 }
 
 
