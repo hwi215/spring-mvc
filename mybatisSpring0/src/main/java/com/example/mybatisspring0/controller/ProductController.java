@@ -50,8 +50,19 @@ public class ProductController {
 	public ModelAndView selectByWord(String keyField, String keyWord){
 		// 조건에 맞는 레코드 검색
 		List<ProductDTO> list = productService.selectByKeyWord(keyField, keyWord);
-		System.out.println("검색 성공");
+		System.out.println("검색 성공!");
 		return new ModelAndView("selectResult", "productList", list);
+	}
+
+	/**
+	 * 4. 정렬대상 컬럼을 인수로 받아 정렬
+	 * */
+	@RequestMapping("/selectByOrder")
+	public ModelAndView selectByOrder(String columnName){
+		List<ProductDTO> list = productService.selectOrder(columnName);
+		System.out.println("정렬 성공!");
+		return new ModelAndView("selectResult", "productList", list);
+
 	}
 
 

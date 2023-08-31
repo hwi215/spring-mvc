@@ -50,9 +50,12 @@ public class ProductDAOImpl implements ProductDAO {
 
 	}
 
+	/**
+	 * 4. 정렬대상 컬럼을 인수로 받아 정렬
+	 * */
 	@Override
 	public List<ProductDTO> selectOrder(String columnName) {
-		return null;
+		return session.selectList(NS + "selectByOrder", columnName);
 	}
 
 	@Override

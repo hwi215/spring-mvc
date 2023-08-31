@@ -9,13 +9,13 @@ public interface ProductDAO {
 
 
 	/**
-	 * 0. 전체검색
+	 * 1. 전체검색
 	 * */
 	List<ProductDTO> selectAll() ;
 
 
 	/**
-	 * 1.레코드 삽입
+	 * 2.레코드 삽입
 	 * */
 	int insert(ProductDTO productDTO) ;
 

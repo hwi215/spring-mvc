@@ -58,9 +58,18 @@ public class ProductServiceImpl implements ProductService {
 		return list;
 	}
 
+	/**
+	 * 4. 정렬대상 컬럼을 인수로 받아 정렬
+	 * */
 	@Override
 	public List<ProductDTO> selectOrder(String columnName) {
-		return null;
+		List<ProductDTO> list;
+		try {
+			list = productDAO.selectOrder(columnName);
+		}catch (Exception e){
+			throw new MyException("정렬에 실패했습니다.");
+		}
+		return list;
 	}
 
 	@Override
