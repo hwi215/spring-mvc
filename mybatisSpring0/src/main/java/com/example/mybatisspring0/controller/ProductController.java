@@ -43,6 +43,17 @@ public class ProductController {
 		return "redirect:/selectAll";
 	}
 
+	/**
+	 * 3. 검색필드 , 검색단어에 해당하는 레코드 검색
+	 * */
+	@RequestMapping("/selectByWord")
+	public ModelAndView selectByWord(String keyField, String keyWord){
+		// 조건에 맞는 레코드 검색
+		List<ProductDTO> list = productService.selectByKeyWord(keyField, keyWord);
+		System.out.println("검색 성공");
+		return new ModelAndView("selectResult", "productList", list);
+	}
+
 
 }
 

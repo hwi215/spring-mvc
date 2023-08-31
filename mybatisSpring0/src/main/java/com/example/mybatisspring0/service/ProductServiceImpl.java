@@ -3,9 +3,9 @@ package com.example.mybatisspring0.service;
 
 import com.example.mybatisspring0.dao.ProductDAO;
 import com.example.mybatisspring0.dto.ProductDTO;
+import com.example.mybatisspring0.exception.MyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import web.mvc.exception.MyException;
 
 import java.util.List;
 
@@ -44,9 +44,18 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 
+	/**
+	 * 3. 검색필드 , 검색단어에 해당하는 레코드 검색
+	 * */
 	@Override
 	public List<ProductDTO> selectByKeyWord(String keyField, String keyWord) {
-		return null;
+		List<ProductDTO> list;
+		try{
+			list = productDAO.selectByKeyWord(keyField, keyWord);
+		}catch (Exception e){
+			throw new MyException("조건에 해당하는 레코드를 찾지 못했습니다.");
+		}
+		return list;
 	}
 
 	@Override
