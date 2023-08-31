@@ -65,6 +65,17 @@ public class ProductController {
 
 	}
 
+	/**
+	 * 5. 파라미터 값을 받아 업데이트하기
+	 * */
+	@RequestMapping("/update")
+	public String update(ProductDTO productDTO){
+		productService.update(productDTO);
+		System.out.println("update 성공");
+		return "redirect:/selectAll";
+
+	}
+
 
 }
 

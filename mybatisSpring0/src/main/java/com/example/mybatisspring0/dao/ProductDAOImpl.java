@@ -58,9 +58,14 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectList(NS + "selectByOrder", columnName);
 	}
 
+	/**
+	 * 5. 파라미터 값을 받아 업데이트하기
+	 * */
 	@Override
 	public int update(ProductDTO productDTO) {
-		return 0;
+
+		return session.update(NS + "update", productDTO);
+
 	}
 
 	@Override

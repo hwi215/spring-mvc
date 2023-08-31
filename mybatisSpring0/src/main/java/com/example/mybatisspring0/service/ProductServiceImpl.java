@@ -72,9 +72,19 @@ public class ProductServiceImpl implements ProductService {
 		return list;
 	}
 
+	/**
+	 * 5. 파라미터 값을 받아 업데이트하기
+	 * */
 	@Override
 	public int update(ProductDTO productDTO) {
-		return 0;
+		int result = 0;
+		try{
+			result = productDAO.update(productDTO);
+		}catch (Exception e){
+			throw new MyException("업데이트에 실패했습니다.");
+		}
+
+		return result;
 	}
 
 	@Override

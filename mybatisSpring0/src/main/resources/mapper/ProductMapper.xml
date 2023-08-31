@@ -33,6 +33,13 @@
         order by #{columnName}
     </select>
 
+    <!-- 5. parameter 정보에 따라 레코드 수정 -->
+    <update id = "update" parameterType="productDTO">
+        update productList
+        set name = #{name}, qty = #{qty}, price = #{price}, detail = #{detail}
+        where code = #{code}
+    </update>
+
 
 
 
