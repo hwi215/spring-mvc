@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository //����
+@Repository // 생성
 public class ProductDAOImpl implements ProductDAO {
 	
 	public static final String NS = "productMapper.";

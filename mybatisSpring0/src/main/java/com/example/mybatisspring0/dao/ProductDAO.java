@@ -8,37 +8,37 @@ import java.util.List;
 public interface ProductDAO {
 
 	/**
-	 * 1.���ڵ� ����
+	 * 1.레코드 삽입
 	 * */
-	 int insert(ProductDTO productDTO) ;
-	
+	int insert(ProductDTO productDTO) ;
+
 	/**
-	 * 2. ��ü�˻�
+	 * 2. 전체검색
 	 * */
 	List<ProductDTO> selectAll() ;
-	
+
 	/**
-	 * 3. �˻��ʵ� , �˻��ܾ �ش��ϴ� ���ڵ� �˻�
+	 * 3. 검색필드 , 검색단어에 해당하는 레코드 검색
 	 * */
 	List<ProductDTO> selectByKeyWord(String keyField, String keyWord) ;
-	
+
 	/**
-	 * 4. ���Ĵ�� �÷��� �μ��� �޾� ����
+	 * 4. 정렬대상 컬럼을 인수로 받아 정렬
 	 * */
 	List<ProductDTO> selectOrder(String columnName) ;
-	
+
 	/**
-	 * 5. �Ķ���� ���� �޾� ������Ʈ�ϱ�
+	 * 5. 파라미터 값을 받아 업데이트하기
 	 * */
 	int update(ProductDTO productDTO);
-	
+
 	/**
-	 * 6.�����ϱ�
+	 * 6.삭제하기
 	 * */
 	int delete(String code) ;
-		
+
 	/**
-	 * 7. qty ��ü ���� ���ϱ�
+	 * 7. qty 전체 개수 구하기
 	 * */
 	int selectSumQty() ;
 

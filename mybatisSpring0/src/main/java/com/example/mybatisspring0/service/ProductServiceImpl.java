@@ -10,55 +10,41 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service //����
+@Service // 생성
 public class ProductServiceImpl implements ProductService {
-	
-	@Autowired //����
-	private ProductDAO productDAO;
-	
+
 	@Override
 	public int insert(ProductDTO productDTO) {
-		int result = 0;
-		try {
-		  result = productDAO.insert(productDTO);
-		}catch (Exception e) {
-			//e.printStackTrace();
-			throw new MyException("��Ͽ� ���ܰ� �߻��߽��ϴ�.");
-		}
-		
-		return result;
+		return 0;
 	}
 
 	@Override
 	public List<ProductDTO> selectAll() {
-		return productDAO.selectAll();
+		return null;
 	}
 
 	@Override
 	public List<ProductDTO> selectByKeyWord(String keyField, String keyWord) {
-		return productDAO.selectByKeyWord(keyField, keyWord);
+		return null;
 	}
 
 	@Override
 	public List<ProductDTO> selectOrder(String columnName) {
-		return productDAO.selectOrder(columnName);
+		return null;
 	}
 
 	@Override
 	public int update(ProductDTO productDTO) {
-		return productDAO.update(productDTO);
+		return 0;
 	}
 
 	@Override
 	public int delete(String code) {
-		int result = productDAO.delete(code);
-		if (result==0)throw new MyException(code+"�� �ش��ϴ� ������ ���� �Ҽ� �����ϴ�.");
-		return result;
+		return 0;
 	}
 
 	@Override
 	public int selectSumQty() {
-		return productDAO.selectSumQty();
+		return 0;
 	}
-
 }
