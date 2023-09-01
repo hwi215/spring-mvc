@@ -1,9 +1,7 @@
 package example.jpa.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.sun.istack.Nullable;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,6 +26,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder // lombok에 존재
 @ToString // 주소값 나오지 않게
+@Setter
 public class Customer {
 
     @Id // PK
@@ -37,7 +36,8 @@ public class Customer {
     @Column(nullable = false, length = 100, name = "user_name") // name: 컬럼병 변경
     private String userName;
 
-    @Transient // 테이블 생성 시, 컬럼으로 만들어지지 않음
+    //@Transient // 테이블 생성 시, 컬럼으로 만들어지지 않음
+    @Nullable
     private int age;
 
     // LocalDate: 년월일, LocalDateTime 시간까지
