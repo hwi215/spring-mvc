@@ -21,12 +21,29 @@ public class MainApp {
         ex.begin();
 
         // 다양한 조건에 해당하는 검색
-        // 직접 쿼리를 만들때 객체 중심으로 쿼리를 작성할 수 있다 - JPQL 문접 제공
-
-        // ex) 이름이 'hwi'인 정보 검색
+        /**
+         * 직접 쿼리를 만들때 객체 중심으로 쿼리를 작성할 수 있다 - JPQL 문접 제공
+         *  1. 이름이 'hwi'인 정보 검색
+         */
+        /*
         String sql = "select c from Customer c where c.userName = 'hwi'";
 
         List<Customer> list = em.createQuery(sql, Customer.class).getResultList();
+
+        for(Customer li : list){
+            System.out.println(li);
+        }
+
+         */
+
+        /**
+         * 2. parameter 정보를 조건으로 사용하기
+         */
+        String sql = "select c from Customer c where c.userName like :name";
+
+        List<Customer> list =
+                em.createQuery(sql, Customer.class)
+                        .setParameter("name", "%hwi%").getResultList();
 
         for(Customer li : list){
             System.out.println(li);
