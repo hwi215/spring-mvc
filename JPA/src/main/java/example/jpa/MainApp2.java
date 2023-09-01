@@ -1,15 +1,11 @@
 package example.jpa;
 
-import example.jpa.domain.Customer;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.Date;
-import java.util.List;
 
-public class MainApp {
+public class MainApp2 {
     public static void main(String[] args) {
         System.out.println("시작하기");
         EntityManagerFactory emf =
@@ -18,7 +14,7 @@ public class MainApp {
         EntityManager em = emf.createEntityManager();
         EntityTransaction ex = em.getTransaction();
 
-        ex.begin();
+        //ex.begin();
 
         // 다양한 조건에 해당하는 검색
         /**
@@ -57,6 +53,7 @@ public class MainApp {
          * 3. parameter 정보 2개를 조건으로 사용하기 - ?1(첫번째 parameter), ?2
          */
 
+        /*
         String sql = "select c from Customer c where c.userName like ?1 or c.age > ?2";
 
         List<Customer> list =
@@ -68,6 +65,8 @@ public class MainApp {
         for(Customer li : list){
             System.out.println(li);
         }
+
+         */
 
 /*
         // 등록

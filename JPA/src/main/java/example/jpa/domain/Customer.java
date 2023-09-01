@@ -21,7 +21,7 @@ import java.util.Date;
  * @UpdateTimestamp : 수정시 자동으로 날짜 수정됨
  * @Temporal(TemporalType.DATE) : TIMESTAMP: 날짜 + 시분초
  */
-@Entity // JPA가 관리하게 될 객체
+//@Entity // JPA가 관리하게 될 객체
 @NoArgsConstructor // 생성자
 @AllArgsConstructor
 @Builder // lombok에 존재
