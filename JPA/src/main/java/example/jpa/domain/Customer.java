@@ -1,5 +1,8 @@
 package example.jpa.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,6 +23,9 @@ import java.util.Date;
  * @Temporal(TemporalType.DATE) : TIMESTAMP: 날짜 + 시분초
  */
 @Entity // JPA가 관리하게 될 객체
+@NoArgsConstructor // 생성자
+@AllArgsConstructor
+@Builder // lombok에 존재
 public class Customer {
 
     @Id // PK
