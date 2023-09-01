@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.Date;
+import java.util.List;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -18,9 +19,21 @@ public class MainApp {
         EntityTransaction ex = em.getTransaction();
 
         ex.begin();
-        // 등록
+
+        // 다양한 조건에 해당하는 검색
+        // 직접 쿼리를 만들때 객체 중심으로 쿼리를 작성할 수 있다 - JPQL 문접 제공
+
+        // ex) 이름이 'hwi'인 정보 검색
+        String sql = "select c from Customer c where c.userName = 'hwi'";
+
+        List<Customer> list = em.createQuery(sql, Customer.class).getResultList();
+
+        for(Customer li : list){
+            System.out.println(li);
+        }
 
 /*
+        // 등록
         em.persist(Customer.builder().age(25).userName("hwi").birthDay(new Date()).build());
         em.persist(Customer.builder().age(10).userName("hwi2").birthDay(new Date()).build());
         em.persist(Customer.builder().age(20).userName("hwi3").birthDay(new Date()).build());
@@ -28,7 +41,7 @@ public class MainApp {
         em.persist(Customer.builder().age(75).userName("hwi5").birthDay(new Date()).build());
 
 
- */
+
 
 
         // 조회
@@ -40,6 +53,7 @@ public class MainApp {
 
         // 삭제
         em.remove(cu);
+*/
 
 
 
