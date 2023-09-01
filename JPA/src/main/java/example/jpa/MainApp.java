@@ -37,13 +37,33 @@ public class MainApp {
          */
 
         /**
-         * 2. parameter 정보를 조건으로 사용하기
+         * 2. parameter 정보를 조건으로 사용하기 - :name(:속성명)
          */
+
+        /*
         String sql = "select c from Customer c where c.userName like :name";
 
         List<Customer> list =
                 em.createQuery(sql, Customer.class)
                         .setParameter("name", "%hwi%").getResultList();
+
+        for(Customer li : list){
+            System.out.println(li);
+        }
+
+         */
+
+        /**
+         * 3. parameter 정보 2개를 조건으로 사용하기 - ?1(첫번째 parameter), ?2
+         */
+
+        String sql = "select c from Customer c where c.userName like ?1 or c.age > ?2";
+
+        List<Customer> list =
+                em.createQuery(sql, Customer.class)
+                        .setParameter(1, "%hwi%")
+                        .setParameter(2, 20)
+                        .getResultList();
 
         for(Customer li : list){
             System.out.println(li);
