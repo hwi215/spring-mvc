@@ -128,9 +128,34 @@ public class MainApp {
 
         // 회원 검색
 
-        Member m = em.find(Member.class, 3L);
+        /*
+        Member m = em.find(Member.class, 4L);
 
         System.out.println(m.toString());
+
+
+         */
+
+        /** 회원 검색
+         * 1. 멤버가 어떤 팀에 소속되어 있는지 알고싶다.(멤버 + 팀)
+         * Member ---> Team
+         *
+         * 2. 어떤 팀에 소속된 멤버 정보를 알고싶다.(팀+멤버)
+         * Team ---> Member
+         *
+         * DB입장
+         * : select * from member join team on 조건
+         * : select * from team join member on 조건
+         */
+
+        // 팀 검색
+
+        Team team = em.find(Team.class, 3L);
+        System.out.println("team: " + team);
+
+        System.out.println("team get list: " + team.getMemberList());
+
+
 
         ex.commit();
         em.close();

@@ -4,6 +4,7 @@ package example.jpa.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.nio.file.FileStore;
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = "team")
 public class Member {
     /**
      * member가 하나의 팀에만 소속된다.
