@@ -20,13 +20,15 @@ public class MainApp {
         ex.begin();
         // 등록
 
-
+/*
         em.persist(Customer.builder().age(25).userName("hwi").birthDay(new Date()).build());
         em.persist(Customer.builder().age(10).userName("hwi2").birthDay(new Date()).build());
         em.persist(Customer.builder().age(20).userName("hwi3").birthDay(new Date()).build());
         em.persist(Customer.builder().age(45).userName("hwi4").birthDay(new Date()).build());
         em.persist(Customer.builder().age(75).userName("hwi5").birthDay(new Date()).build());
 
+
+ */
 
 
         // 조회
@@ -35,6 +37,9 @@ public class MainApp {
 
         // 수정
         cu.setAge(50);
+
+        // 삭제
+        em.remove(cu);
 
 
 
