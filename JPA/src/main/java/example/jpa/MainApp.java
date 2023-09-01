@@ -30,6 +30,9 @@ public class MainApp {
          */
 
         // 조회
+        Customer cu = em.find(Customer.class, 3L);
+        System.out.println("cu = " + cu);
+
 
 
 

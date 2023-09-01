@@ -3,6 +3,7 @@ package example.jpa.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -26,6 +27,7 @@ import java.util.Date;
 @NoArgsConstructor // 생성자
 @AllArgsConstructor
 @Builder // lombok에 존재
+@ToString // 주소값 나오지 않게
 public class Customer {
 
     @Id // PK
